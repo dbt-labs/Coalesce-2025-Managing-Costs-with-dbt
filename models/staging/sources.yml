@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: formula1  
+    tables:
+      - name: circuits
+      - name: constructors
+      - name: constructor_results
+      - name: drivers
+      - name: lap_times
