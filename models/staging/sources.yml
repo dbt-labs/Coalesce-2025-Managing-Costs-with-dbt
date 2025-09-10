@@ -7,5 +7,14 @@ sources:
       - name: circuits
       - name: constructors
       - name: constructor_results
+      - name: constructor_standings
       - name: drivers
+      - name: driver_standings
       - name: lap_times
+      - name: pit_stops
+      - name: qualifying
+      - name: races
+      - name: results
+      - name: seasons
+      - name: sprint_results
+      - name: status 
