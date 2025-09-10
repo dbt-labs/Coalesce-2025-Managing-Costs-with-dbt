@@ -1,7 +1,7 @@
 select 
-    constructor_id,
-    constructor_ref,
-    name,
-    nationality,
-    url
-from {{ source('raw', 'constructor_results') }}
+    constructor_results_id, 
+    race_id, 
+    constructor_id, 
+    points, 
+    status
+from {{ source("raw", "constructor_results") }}
