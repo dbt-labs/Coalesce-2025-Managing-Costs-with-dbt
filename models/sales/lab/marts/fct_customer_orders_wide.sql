@@ -4,8 +4,8 @@
     )
 }}
 
-SELECT
-    -- From Lineitem
+select
+    -- from lineitem
     l.l_orderkey,
     l.l_partkey,
     l.l_suppkey,
@@ -20,7 +20,7 @@ SELECT
     l.l_commitdate,
     l.l_receiptdate,
 
-    -- From Orders
+    -- from orders
     o.o_custkey as customerkey,
     o.o_orderstatus,
     o.o_totalprice,
@@ -29,16 +29,16 @@ SELECT
     o.o_clerk,
     o.o_shippriority,
 
-    -- From Customer
-    c.c_name AS c_customer_name,
+    -- from customer
+    c.c_name as c_customer_name,
     c.c_nationkey,
     c.c_acctbal
 
-FROM
-    {{ ref('stg_lineitem') }} AS l
-LEFT JOIN
-    {{ ref('stg_orders') }} AS o
-    ON l.l_orderkey = o.o_orderkey
-LEFT JOIN
-    {{ ref('stg_customer') }} AS c
-    ON o.o_custkey = c.c_custkey
+from
+    {{ ref('stg_lineitem') }} as l
+left join
+    {{ ref('stg_orders') }} as o
+    on l.l_orderkey = o.o_orderkey
+left join
+    {{ ref('stg_customer') }} as c
+    on o.o_custkey = c.c_custkey
