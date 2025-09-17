@@ -17,4 +17,5 @@ sources:
       - name: results
       - name: seasons
       - name: sprint_results
-      - name: status 
+      - name: status
+    
