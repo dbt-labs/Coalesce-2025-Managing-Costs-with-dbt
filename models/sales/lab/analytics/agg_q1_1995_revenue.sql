@@ -1,4 +1,9 @@
 -- Find the total revenue from high-priority orders in the first quarter of 1995.
+{{ 
+    config(
+        pre_hook='use warehouse dbt_fundamentals;'
+    )
+}}
 
 select
     o_orderpriority,
