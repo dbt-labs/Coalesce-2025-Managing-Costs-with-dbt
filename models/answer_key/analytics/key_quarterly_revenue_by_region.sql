@@ -1,25 +1,19 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
-
 -- use ctes to break down complex logic and improve readability
 
 with european_customers as (
     select
         c.c_custkey,
-        c.c_mktsegment
+        c.c_mktsegment as market_segment
     from
         {{ ref('stg_customer') }} c
     join
         {{ ref('stg_nation') }} n on c.c_nationkey = n.n_nationkey
     join
         {{ ref('stg_region') }} r on n.n_regionkey = r.r_regionkey
+    -- filter as early as possible
     where
-        -- filter as early as possible on region and segment
         r.r_name = 'EUROPE'
-        and c.c_mktsegment = 'BUILDING'
+    and c.c_mktsegment = 'BUILDING'
 ),
 
 late_order_items as (
@@ -28,17 +22,17 @@ late_order_items as (
         order_date,
         net_item_sales_amount
     from
-        {{ ref('fct_order_items') }}
+        {{ ref('int_order_items_incremental_clustered') }}
     where
-        -- filter early on the "late" status and leveraging the clustering key
+        -- filter early and leveraging the clustering key
         receipt_date > commit_date
         and order_date >= '1995-01-01'
 )
 
--- final select statement joins the two small, pre-filtered ctes
+-- final select statement 
 select
     extract(quarter from loi.order_date) as order_quarter,
-    ec.c_mktsegment,
+    ec.market_segment,
     sum(loi.net_item_sales_amount) as total_revenue
 from
     late_order_items loi
