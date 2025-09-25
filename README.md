@@ -1,6 +1,7 @@
-Welcome to your new dbt project!
+Welcome to the Cost Management Training Demo Project!
 
-### Using the starter project
+
+### Setting up for the demos and labs
 
 Try running the following commands:
 - dbt run
@@ -8,8 +9,6 @@ Try running the following commands:
 
 
 ### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- For the [Hands-On Lab: Taming the Full Refresh](https://docs.getdbt.com/docs/build/incremental-models#filtering-rows-on-an-incremental-run)
+
+- For the [Hands-On Lab Part 2: Write Amplification Overdrive -- keep in mind we are using the MERGE strategy](https://docs.getdbt.com/reference/resource-configs/vertica-configs#using-the-incremental_strategy-config-parameter)

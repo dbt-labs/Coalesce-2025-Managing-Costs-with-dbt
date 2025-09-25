@@ -11,16 +11,26 @@
 
 -- CTE to identify European customers
 -- filter early!
+with european_customers as (
 
 
+
+),
 
 -- CTE to identify late orders
 -- filter early!
 -- re-write the filter to remove the functions wrapped around the order_date column
+late_order_items as (
 
+
+
+)
 
 
 -- final select
+select 
 
 
 
+from european_customers ec
+join late_order_items loi

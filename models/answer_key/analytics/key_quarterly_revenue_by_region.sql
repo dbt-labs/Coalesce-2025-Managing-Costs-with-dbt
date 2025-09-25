@@ -2,7 +2,7 @@
 
 with european_customers as (
     select
-        c.c_custkey,
+        c.c_custkey as customer_key,
         c.c_mktsegment as market_segment
     from
         {{ ref('stg_customer') }} c
@@ -37,7 +37,7 @@ select
 from
     late_order_items loi
 join
-    european_customers ec on loi.customer_key = ec.c_custkey
+    european_customers ec on loi.customer_key = ec.customer_key
 group by
     1, 2
 order by
