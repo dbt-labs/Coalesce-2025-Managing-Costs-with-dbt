@@ -1,6 +1,8 @@
 {{
     config(
-        materialized='table'
+        materialized='table',
+        tags=['test'],
+        pre_hook="{{ get_models_by_tag('test', 'dbt_fundamentals') }}"
     )
 }}
 
