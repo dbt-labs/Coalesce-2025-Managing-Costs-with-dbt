@@ -1,3 +1,8 @@
+{{ config(
+    tags=['test'],
+    pre_hook="{{ get_warehouse_by_tags() }}"
+)}}
+
 select
     c_custkey,
     c_name,
