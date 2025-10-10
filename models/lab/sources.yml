@@ -7,8 +7,5 @@ sources:
       - name: customer
       - name: orders
       - name: lineitem
-  - name: tpch_sf100
-    database: snowflake_sample_data
-    tables:
-      - name: nation
+      - name: nation 
       - name: region
