@@ -3,7 +3,7 @@
   {% if wh %}
     
     {% set use_warehouse_sql %}
-      USE WAREHOUSE {{ wh }};
+      use warehouse {{ wh }};
     {% endset %}
 
     {% do run_query(use_warehouse_sql) %}
