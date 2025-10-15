@@ -1,6 +1,10 @@
+--Added cluster_by config to reduce cost when running the dashboard_query
+-- Focus the clustering key on columns that are dates, or used in joins and filters so there is a ok number of partitions
+-- and will be useful, not too many or too few.
 {{
     config(
         materialized='table'
+        , cluster_by = ['order_date']
     )
 }}
 

@@ -1,6 +1,10 @@
+--Fix ad-hoc queries slide exercise
+--Even with it being an incremental, the partition and clustering processing will be retroactive
+
 {{
     config(
         materialized='incremental'
+        , cluster_by = ['order_date', 'nation_key']
     )
 }}
 
