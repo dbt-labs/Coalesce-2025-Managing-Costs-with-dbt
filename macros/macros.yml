@@ -1,0 +1,9 @@
+version: 2
+
+macros:
+  - name: suggest_clustering_keys
+    description: "{{ doc('suggest_clustering_keys') }}"
+    arguments:
+      - name: model_name
+        type: string
+        description: "The name of the model to analyze for clustering key suggestions."

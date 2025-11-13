@@ -1,4 +1,4 @@
-{% macro suggest_clustering_keys(model_name) %}
+{% macro suggest_clustering_keys_legacy(model_name) %}
 
   {#--
 
@@ -99,10 +99,10 @@
 
       {{ log("\n--- Top 3 Clustering Key Candidates for " ~ model_relation ~ " ---", info=true) }}
       {{ log("Sorted by a score combining cardinality and actual query usage from the last 30 days.", info=true) }}
-
+      {{ log(model_relation ~ " has a total row count of " ~ total_rows, info=true )}}
       {% for rec in sorted_recommendations %}
         {% if loop.index <= 3 %}
-          {{ log("  - Candidate " ~ loop.index ~ ": " ~ rec.column_name ~ " (Distinct Values: " ~ rec.distinct_values ~ ", Recent Uses: " ~ rec.usage_count ~ ")", info=true) }}
+          {{ log("  - Candidate " ~ loop.index ~ ": " ~ rec.column_name ~ " (Distinct Values: " ~ rec.distinct_values ~ ", Recent JOIN/WHERE Uses: " ~ rec.usage_count ~ ")", info=true) }}
         {% endif %}
       {% endfor %}
 
